@@ -175,7 +175,7 @@ bindsym $mod+r mode "resize"
 
 #polybar
 exec --no-startup-id polybar top -r
-exec --no-startup-id polybar bottom -r
+#exec --no-startup-id polybar bottom -r
 
 #coloring
 # class                 border  backgr. text    indicator child_border
@@ -184,8 +184,8 @@ client.unfocused        #0d1010 #212121 #d9d9d9 #424242 #063340
 client.focused          #eee8d5 #cecece #000000 #eee8d5 #eee8d5
 
 #gaps configuration
-gaps inner 6 
-gaps outer 2 
+gaps inner 3 
+gaps outer 0 
 
 #Only enable gaps on a workspace when there is atleast one container
 #smart_gaps on
@@ -215,7 +215,7 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 10
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10 
  
 #screenshot 
-bindsym Print exec scrot -e 'mv $f ~/Pictures/Screenshots'
+bindsym Print exec scrot -e 'mv $f ~/s/'
 
 
 #AUTOSTART
