@@ -194,7 +194,6 @@ gaps outer 0
 smart_borders on
 
 #default workspaces
-for_window [class="Spotify"] move to workspace $ws10
 
 #SPECIAL KEY BINDINGS
 
@@ -211,8 +210,8 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 #Brightness Controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 10 
-bindsym XF86MonBrightnessDown exec xbacklight -dec 10 
+bindsym $mod+F6 exec xbacklight -inc 10 
+bindsym $mod+F5 exec xbacklight -dec 5 
  
 #screenshot 
 bindsym Print exec scrot -e 'mv $f ~/s/'
@@ -221,7 +220,7 @@ bindsym Print exec scrot -e 'mv $f ~/s/'
 #AUTOSTART
 
 #compositor
-exec_always --no-startup-id compton -b --config ~/.config/compton.conf
+exec --no-startup-id compton -b --config ~/.config/compton.conf
 
 #background
 exec_always --no-startup-id feh --randomize --bg-fill ~/.wallpaper/*
@@ -231,3 +230,15 @@ exec_always --no-startup-id setxkbmap fr
 
 #redshift
 exec --no-startup-id redshift-gtk
+
+#backlight&ecryptfs 
+exec --no-startup-id uxterm -e "i3-msg floating enable && mp.sh"
+
+bindsym $mod+p exec uxterm -e "i3-msg floating enable && mp.sh"
+bindsym $mod+c exec uxterm -e "i3-msg floating enable && com.sh"
+
+#bitchxrasppi
+bindsym $mod+g exec uxterm -e "i3-msg floating enable && BitchX -ssl 192.168.1.21:20160 grothendieck"
+
+#sceenshot_jirafeau
+bindsym $mod+t exec scrot -e 'mv $f ~/s/ && jirafeau.sh send ~/s/$f' | tail -n 1 | head -c -1 | xclip -f -sel p | xclip -sel clipboard
