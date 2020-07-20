@@ -29,7 +29,7 @@ font-4 = MaterialIcons:size=10;-1
 font-5 = Termsynu:size=8:antialias=false;0
 font-6 = Freesans:size=8;-3
 font-7 = Siji:pixelsize=10;1"
-modules-left = wireless-network battery batteryz
+modules-left = wireless-network mullvadwg battery batteryz cmus
 modules-right = cpu memory filesystem pulseaudio date
 
 [module/filesystem]
@@ -40,7 +40,7 @@ mount-0 = /
 mount-1 = /mnt
 
 ; Seconds to sleep between updates
-; Default: 30
+; Default: 10
 interval = 10
 
 ; Display fixed precision values
@@ -53,6 +53,8 @@ spacing = 4
 
 label-unmounted = %mountpoint% 
 label-mounted = %mountpoint% %percentage_free%% of %total%
+
+
 
 [module/pulseaudio]
 type = internal/pulseaudio
@@ -68,6 +70,34 @@ use-ui-max = true
 ; Interval for volume increase/decrease (in percent points)
 ; Default: 5
 interval = 5
+
+[module/cmus]
+type = custom/script
+
+exec = ~/player-cmus.sh
+exec-if = pgrep -x cmus
+interval = 5
+
+click-left = cmus-remote --next
+click-right = cmus-remote --prev
+click-middle = cmus-remote --pause
+scroll-up = cmus-remote --volume +5%
+scroll-down = cmus-remote --volume -5%
+
+label-font = 10
+format = <label>
+#format-underline = ${colors.foreground-alt}
+label = %output%
+label-maxlen = 150
+
+[module/mullvadwg]
+type = custom/script
+exec = ~/mullvad.sh
+interval = 100
+
+label-font = 10
+format = <label>
+
 
 [module/battery]
 type = internal/battery

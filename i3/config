@@ -93,7 +93,7 @@ bindsym $mod+space floating toggle
 bindsym $mod+Shift+space focus mode_toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
+bindsym $mod+n focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
@@ -220,11 +220,12 @@ bindsym Print exec scrot -e 'mv $f ~/s/'
 #AUTOSTART
 
 #compositor
-exec --no-startup-id compton -b --config ~/.config/compton.conf
+exec --no-startup-id compton -b --config ~/.config/picom.conf
 
 #background
 exec_always --no-startup-id feh --randomize --bg-fill ~/.wallpaper/*
-
+#nsfw
+#exec_always --no-startup-id feh --randomize --bg-fill ~/.wallpapernsfw/*
 #keyboard layout
 exec_always --no-startup-id setxkbmap fr
 
@@ -236,6 +237,7 @@ exec --no-startup-id uxterm -e "i3-msg floating enable && mp.sh"
 
 bindsym $mod+p exec uxterm -e "i3-msg floating enable && mp.sh"
 bindsym $mod+c exec uxterm -e "i3-msg floating enable && com.sh"
+bindsym $mod+a exec ~/.config/i3/lock.sh
 
 #bitchxrasppi
 bindsym $mod+g exec uxterm -e "i3-msg floating enable && BitchX -ssl 192.168.1.21:20160 grothendieck"
