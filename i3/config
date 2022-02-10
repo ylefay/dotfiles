@@ -33,7 +33,7 @@ font pango:Monaco 9
 floating_modifier $mod
 
 #setting maximum floating size 
-floating_maximum_size 2000 x 1000 
+floating_maximum_size 2000 x 1000
 
 # start a terminal
 bindsym $mod+Return exec --no-startup-id uxterm
@@ -42,7 +42,8 @@ bindsym $mod+Return exec --no-startup-id uxterm
 bindsym $mod+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id rofi -show run -config ~/.config/rofi/config
+bindsym $mod+d exec --no-startup-id rofi -show run 
+#-config ~/.config/rofi/config
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -184,8 +185,8 @@ client.unfocused        #0d1010 #212121 #d9d9d9 #424242 #063340
 client.focused          #eee8d5 #cecece #000000 #eee8d5 #eee8d5
 
 #gaps configuration
-gaps inner 3 
-gaps outer 0 
+gaps inner 3
+gaps outer 0
 
 #Only enable gaps on a workspace when there is atleast one container
 #smart_gaps on
@@ -210,9 +211,9 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 #Brightness Controls
-bindsym $mod+F6 exec xbacklight -inc 10 
-bindsym $mod+F5 exec xbacklight -dec 5 
- 
+bindsym F6 exec xbacklight -inc 10 
+bindsym F5 exec xbacklight -dec 5 
+
 #screenshot 
 bindsym Print exec scrot -e 'mv $f ~/s/'
 
@@ -243,4 +244,7 @@ bindsym $mod+a exec ~/.config/i3/lock.sh
 bindsym $mod+g exec uxterm -e "i3-msg floating enable && BitchX -ssl 192.168.1.21:20160 grothendieck"
 
 #sceenshot_jirafeau
-bindsym $mod+t exec scrot -e 'mv $f ~/s/ && jirafeau.sh send ~/s/$f' | tail -n 1 | head -c -1 | xclip -f -sel p | xclip -sel clipboard
+#bindsym $mod+t exec scrot -e 'mv $f ~/s/ && jirafeau.sh send ~/s/$f' | tail -n 1 | head -c -1 | xclip -f -sel p | xclip -sel clipboard
+bindsym $mod+t exec scrot -e 'mv $f ~/p/s/'
+
+bindsym $mod+o exec "maim -su | xclip -sel clip -t image/png"

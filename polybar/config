@@ -11,8 +11,8 @@ monitor = eDP-1
 width = 100%
 height = 18
 
-background = #00000000
-foreground = #ccffffff
+background = #c0000000
+foreground = #ffffffff
 
 line-color = ${bar/bottom.background}
 line-size = 10
@@ -93,7 +93,7 @@ label-maxlen = 150
 [module/mullvadwg]
 type = custom/script
 exec = ~/mullvad.sh
-interval = 100
+interval = 10
 
 label-font = 10
 format = <label>

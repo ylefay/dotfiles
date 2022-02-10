@@ -1,0 +1,8 @@
+configuration {
+theme: "solarized-darker";
+font: "menlo 10";
+yoffset: -363;
+xoffset: +800;
+fixed-num-lines: false;
+}
+
